@@ -1,0 +1,94 @@
+ <div ng-controller="IndexCtrl">
+ <!--顶部工具栏-->
+     <div id="h" class="navbar navbar-default navbar-fixed-top" role="banner"> 
+            <div class="navbar-header"> 
+                <a id="h-a" href="#" class="navbar-brand">Review管理系统</a>
+            </div> 
+            <div id="h-l" class="pull-right">
+            	<a>登陆</a>
+            </div>
+            <!--  
+            <div id="h-r-d" class="collapse navbar-collapse pull-right" role="navigation"  ng-hide="usernotlogin()"> 
+                <ul class="nav navbar-nav nav-ico"> 
+                    <li> 
+                    <a class='h-a-i' href="#"><i class="fa fa-bell fa-lg"></i><span class="badge badge-h-i">4</span></a> 
+                    </li> 
+                    <li> 
+                    <a  class='h-a-i' href="#"><i class="fa fa-info fa-lg"></i><span class="badge badge-h-i">2</span></a> 
+                    </li> 
+                    <li class="dropdown"> 
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                            <span><img class="avatar" src="/public/assets/img/avatar_default.jpg"></span>
+                            <strong class="caret"></strong></a> 
+                        <ul id="h-u-ul" class="dropdown-menu clearfix"> 
+                            <li> 
+                                <a href="#"><i class="fa fa-cog"></i>&nbsp;编辑信息</a> 
+                            </li> 
+                            <li> 
+                                <a href="#"><i class="fa fa-edit"></i>&nbsp;修改密码</a> 
+                            </li> 
+                            <li class="divider"> 
+                            </li> 
+                            <li> 
+                                <a href="#"><i class="fa fa-sign-out"></i>&nbsp;退出</a> 
+                            </li> 
+                        </ul> 
+                    </li> 
+
+                </ul> 
+            </div> -->
+        </div> <!--//. 顶部工具栏  结束-->
+
+        <!--2.1 左侧固定栏-->
+        <div id="col-left" ng-controller="LeftCtrl">
+            <ul class="sidebar-nav">
+                <li ng-class="{active:menuActive('index')}">
+                    <a class="sidebar-a" href="javascript:void(0)" ><i class="fa fa-home fa-2x"></i></a>
+                </li>
+                <li ng-class="{active:menuActive('project')}">
+                    <a class="sidebar-a" href="javascript:void(0)"><i class="fa fa-book fa-2x"></i></a>
+                    <div class="subnav panel panel-default">
+                    	<div class="panel-heading">项目管理</div>
+	                   		<ul class="list-group">
+	                    		<li class="submenu list-group-item"><a href="javascript:void(0)">项目管理</a></li>
+	                    	</ul>
+	                  </div>
+                </li>
+                <li ng-class="{active:menuActive('task')}">
+                    <a class="sidebar-a" href="javascript:void(0)"><i class="fa fa-tasks fa-2x"></i></a>
+                    <div class="subnav panel panel-default">
+                    	<div class="panel-heading">任务管理</div>
+	                   		<ul class="list-group">
+	                    		<li class="submenu list-group-item"><a href="javascript:void(0)">任务管理</a></li>
+	                    		<li class="submenu list-group-item"><a href="javascript:void(0)">周报管理</a></li>
+	                    	</ul>
+	                  </div>
+                </li>
+                <li  ng-class="{active:menuActive('review')}">
+                    <a class="sidebar-a" href="javascript:void(0)" ui-sref="review"><i class="fa fa-tags fa-2x"></i></a>
+                     <div class="subnav panel panel-default">
+                    	<div class="panel-heading">review</div>
+	                   		<ul class="list-group">
+	                    		<li class="submenu list-group-item"><a href="javascript:void(0)" ui-sref="review">代码走查</a></li>
+	                    		<li class="submenu list-group-item"><a href="javascript:void(0)" ui-sref="issue">问题管理</a></li>
+	                    	</ul>
+	                  </div>
+                </li>
+                <li ng-class="{active:menuActive('sysconfig')}">
+                    <a class="sidebar-a" href="javascript:void(0)"><i class="fa fa-cog fa-2x"></i></a>
+                    <div class="subnav panel panel-default">
+                    	<div class="panel-heading">系统设置</div>
+	                   		<ul class="list-group">
+	                    		<li class="submenu list-group-item"><a href="javascript:void(0)">用户管理</a></li>
+	                    		<li class="submenu list-group-item"><a href="javascript:void(0)">角色管理</a></li>
+	                    	</ul>
+	                  </div>
+                    
+                </li>
+            </ul>
+        </div><!--//2.1 左侧固定栏 结束-->
+        <!--2.2 右侧内容区-->
+        <div id="col-right" ng-controller="RightCtrl">
+            <div ui-view="main"></div>
+        </div><!--//.2.2 右侧内容区 结束-->
+</div>

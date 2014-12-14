@@ -1,0 +1,39 @@
+<div class="" ng-controller="IssueCtrl">
+	
+	<!-- 0. 导航路径 -->
+	<div class="row">
+		<div class="col-md-12">
+			<ol class="breadcrumb">
+				<li><a href="javascript:void(0)" ui-sref="review">review</a></li>
+				<li class="active">issue</li>
+			</ol>		
+		</div>
+	</div>
+	
+	<!-- 1. 数据查询区 -->
+	
+	<!-- 2. 表格区，数据展示 -->
+	<div class="row">
+		<div class="col-md-12">
+			<div class="panel panel-default">
+				<div  class="panel-heading"><span>问题列表</span>&nbsp;&nbsp;<span id="issue-title"></span></div>
+				<div class="panel-body" style="padding:0;">
+					<div class="gridStyle" ng-grid="gridOptions" style="height:400px;"></div>
+				</div>
+				<div class="panel-footer" style="padding:0;">
+					<div class="pull-right">
+						<span>共{{page.rowsCount}}条记录/{{page.pageCount}}页</span>
+						<pagination direction-liks="false" boundary-links="true" total-items="page.rowsCount"
+							 ng-model="currentPage" class="pagination-sm" items-per-page="50"
+							 previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"
+							 ng-change="pageChanged()">
+						 </pagination>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	
+
+</div>

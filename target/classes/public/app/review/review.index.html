@@ -1,0 +1,122 @@
+<div class="" ng-controller="ReviewCtrl">
+	
+	<!-- 0. 导航路径 
+	<div class="row">
+		<div class="col-md-12">
+			<ol class="breadcrumb">
+				<li><a href="javascript:void(0)"></a></li>
+			</ol>		
+		</div>
+	</div>-->
+	
+	
+	<div class="row">
+		<div class="col-md-12">
+			<ul class="nav nav-tabs" role="tablist">
+			  <li id="reviewtable" role="presentation" ng-class="{active:istableactive()}" ng-click="activetab('reviewtable')"><a href="#">review列表</a></li>
+			  <li id="reviewchart" role="presentation"  ng-class="{active:ischartactive()}" ng-click="activetab('reviewchart')"><a href="#">统计</a></li>
+			</ul>
+		</div>
+	</div>
+	
+	<!-- 数据统计区 -->
+	<div id="reviewchart-content" class="row" ng-show="ischartactive()">
+		<div class="col-md-12">
+			<div id="chart" style="height:300px;border:1px solid #ccc;padding:10px;"></div>		
+		</div>
+	</div>
+	
+	<div id="reviewtable-content" ng-show="istableactive()">
+	<!-- 1. 数据查询区 -->
+	
+	<!-- 2. 表格区，数据展示 -->
+	<div class="row">
+		<div class="col-md-12">
+			<div class="panel panel-default">
+				<div class="panel-body" style="padding:0;">
+					<div class="gridStyle" ng-grid="gridOptions" style="height:300px;"></div>
+				</div>
+				<div class="panel-footer" style="padding:0;">
+					<div class="pull-right">
+						<span>共{{page.rowsCount}}条记录/{{page.pageCount}}页</span>
+						<pagination direction-liks="false" boundary-links="true" total-items="page.rowsCount"
+							 ng-model="currentPage" class="pagination-sm" items-per-page="50"
+							 previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"
+							 ng-change="pageChanged()">
+						 </pagination>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- 4. 点击表体某行后，显示内容 -->
+	<hr/>
+	<div class="row">
+		<div class="col-md-12">
+			<tabset justified="true" type="tabs">
+				<tab heading="问题清单">
+					<div>
+						<table class="table table-striped">
+							<thead>
+								<th>#</th>
+								<th>id</th>
+								<th>处理人</th>
+								<th>文件名</th>
+								<th>行号</th>
+								<th>标题</th>
+								<th>描述</th>
+								<th>状态</th>
+							</thead>
+							<tbody>
+								<tr ng-repeat="issue in selectionItems[0].issues">
+									<td>{{$index}}</td>
+									<td>{{issue.id}}</td>
+									<td>{{issue.assignedTo}}</td>
+									<td>{{issue.fileName}}</td>
+									<td>{{issue.fileLine}}</td>
+									<td>{{issue.summary}}</td>
+									<td>{{issue.description}}</td>
+									<td><span class="label label-primary" ng-show="{{!issue.closed}}">活动</span><span class="label label-danger" ng-show="{{issue.closed}}">关闭</span></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</tab>
+				<tab heading="reviewers">
+					<div>
+						<table class="table table-striped">
+							<thead>
+								<th>#</th>
+								<th>id</th>
+							</thead>
+							<tbody>
+								<tr ng-repeat="reviewer in selectionItems[0].reviewers">
+									<td>{{$index}}</td><td>{{reviewer.id}}</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</tab>
+				<tab heading="文件">
+					<div>
+						<table class="table table-striped">
+							<thead>
+								<th>#</th>
+								<th>文件名</th>
+							</thead>
+							<tbody>
+								<tr ng-repeat="file in selectionItems[0].files">
+									<td>{{$index}}</td><td>{{file.name}}</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</tab>
+				
+			</tabset>		
+		</div>
+	</div>
+	
+	</div>
+
+</div>

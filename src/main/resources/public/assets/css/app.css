@@ -1,0 +1,116 @@
+
+
+body { 
+padding-top:50px; 
+font-size: 12px;
+} 
+
+#h{
+	margin-bottom:0;
+}
+#h-l{
+	height:51px;
+	line-height:51px;
+	padding-right:10px;
+}
+#h-l>a{
+	color:white;
+}
+
+.padding10{
+	padding:10px;
+}
+
+
+
+/**左侧按钮区*/
+#col-left{
+    position: fixed;
+    top: 51px;
+    left: 0;
+    height: 100%;
+    background-color: #d5d5d5;
+    color: #000;
+    padding-top:20px;
+    z-index:999;
+}
+.sidebar-nav{
+    background-color: #d5d5d5;
+    top: 0;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    padding-left: 0;
+    margin-top
+}
+.sidebar-nav>li{
+    height: 40px;
+    text-align: center;
+    padding-left: 0px;
+    position: relative;
+}
+.sidebar-nav>li.active{
+    background-color: #CCC;
+    color: #393;
+}
+.sidebar-nav>li.active>a.sidebar-a{
+    color: #393;
+}
+.sidebar-a{
+    width: 40px;
+    display: block;
+    text-align: center;
+    color: #000;
+    padding-top: 10px;
+    height: 40px;
+}
+.sidebar-a:hover{
+    color:#000;
+}
+.sidebar-txt{
+    height: 16px;
+    line-height: 16px;
+    margin-left: -5px;
+}
+
+/**右侧内容区*/
+#col-right{
+    margin-left: 40px;
+}
+
+.pagination{
+	margin:0;
+	margin-top:5px;
+}
+
+.nggrid-cell{
+	height:30px;
+	line-height:30px;
+	padding-left:5px;
+}
+
+/**二级菜单*/
+.subnav{
+	display:none;
+	position:absolute;
+	left:40px;
+	top:0;
+}
+.subnav div{
+	margin:0;
+	padding:5px 10px;
+}
+.subnav  ul li{
+	padding:5px 10px;
+}
+.sidebar-nav li:hover .subnav{
+	display:block;
+}
+.submenu{
+	min-width:100px;
+}
+.submenu a{
+	text-decoration: none;
+	color:#000;
+}
+
